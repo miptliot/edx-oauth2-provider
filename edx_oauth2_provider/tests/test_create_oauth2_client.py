@@ -1,7 +1,7 @@
 """
 Tests of the create_oauth2_client management command.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 import json
 from itertools import product
@@ -82,7 +82,7 @@ class CreateOauth2ClientTests(TestCase):
             (t for t in CLIENT_TYPES),
         ),
         # Generate all valid option combinations
-        (dict(zip(('username', 'client_name', 'client_id', 'client_secret', 'trusted'), p)) for p in product(
+        (dict(list(zip(('username', 'client_name', 'client_id', 'client_secret', 'trusted'), p))) for p in product(
             (USERNAME, None),
             ('name', None),
             ('id', None),

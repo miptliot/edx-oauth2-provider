@@ -1,7 +1,7 @@
 """
 Management command used to create an OAuth2 client in the database.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 import json
 
@@ -85,7 +85,7 @@ class Command(BaseCommand):
         if client_id_claimed:
             client = Client.objects.get(client_id=client_id)
 
-            for key, value in self.fields.items():
+            for key, value in list(self.fields.items()):
                 setattr(client, key, value)
 
             client.save()

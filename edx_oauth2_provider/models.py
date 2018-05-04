@@ -1,7 +1,7 @@
 """
 Custom OAuth2 models
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 from django.db import models
 from django.utils.encoding import python_2_unicode_compatible
@@ -21,7 +21,7 @@ class TrustedClient(models.Model):
     directly.
 
     """
-    client = models.ForeignKey(Client)
+    client = models.ForeignKey(Client, on_delete=models.CASCADE)
 
     class Meta(object):
         db_table = 'oauth2_provider_trustedclient'

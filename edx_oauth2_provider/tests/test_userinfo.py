@@ -1,7 +1,7 @@
 """
 Userinfo tests.
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 from .base import UserInfoTestCase
 
@@ -47,13 +47,13 @@ class UserInfoViewTest(UserInfoTestCase):
 
         user = self.user
         expected = {
-            u'preferred_username': user.username,
-            u'given_name': user.first_name,
-            u'family_name': user.last_name,
-            u'name': user.get_full_name(),
+            'preferred_username': user.username,
+            'given_name': user.first_name,
+            'family_name': user.last_name,
+            'name': user.get_full_name(),
         }
 
-        for key, value in expected.iteritems():
+        for key, value in expected.items():
             self.assertEqual(claims[key], value)
 
     def test_claims_request(self):

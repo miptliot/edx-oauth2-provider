@@ -22,8 +22,7 @@ setup(
     ],
     packages=find_packages(exclude=['tests']),
     install_requires=[
-        'django>=1.8.7,<2.0',
-        'edx-django-oauth2-provider>=1.2.1,<2.0.0',
+        'django>=2.0.1',
         'PyJWT>=1.4.0,<2.0.0'
     ]
 )
