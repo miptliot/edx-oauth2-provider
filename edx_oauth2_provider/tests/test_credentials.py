@@ -1,10 +1,10 @@
 """ Test email as username authentication """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 import json
 
 import ddt
-from django.core.urlresolvers import reverse
+from django.urls import reverse
 from provider.constants import CONFIDENTIAL, PUBLIC
 
 from .base import OAuth2TestCase

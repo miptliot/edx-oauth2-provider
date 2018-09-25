@@ -2,7 +2,7 @@
 Customized django-oauth2-provider views, aligned with the OpenID specification.
 
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 import json
 
@@ -140,7 +140,7 @@ class AccessTokenView(provider.oauth2.views.AccessTokenView):
 
         # Add any additional fields if OpenID Connect is requested. The order of
         # the addition makes sures the OAuth2 values are not overrided.
-        response_data = dict(extra_data.items() + response_data.items())
+        response_data = dict(list(extra_data.items()) + list(response_data.items()))
 
         return response_data
 
@@ -263,7 +263,7 @@ class UserInfoView(ProtectedView):
 
         try:
             claims = self.userinfo_claims(access_token, scope_request, claims_request)
-        except ValueError, exception:
+        except ValueError as exception:
             return self._bad_request(str(exception))
 
         # TODO: Encode and sign responses if requested.

@@ -1,7 +1,7 @@
 """
 OAuth2 provider urls
 """
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 from django.conf.urls import url
 from django.contrib.auth.decorators import login_required

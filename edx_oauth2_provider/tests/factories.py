@@ -1,5 +1,5 @@
 # pylint: disable=missing-docstring
-from __future__ import absolute_import, division, print_function, unicode_literals
+
 
 from django.contrib.auth.models import User
 import factory
@@ -15,11 +15,11 @@ class UserFactory(DjangoModelFactory):
         model = User
         django_get_or_create = ('username', )
 
-    username = factory.Sequence(u'robot_{0}'.format)
-    email = factory.Sequence(u'robot_{0}@edx.org'.format)
+    username = factory.Sequence('robot_{0}'.format)
+    email = factory.Sequence('robot_{0}@edx.org'.format)
     password = factory.PostGenerationMethodCall('set_password', 'some_password')
 
-    first_name = factory.Sequence(u'Robot{0}'.format)
+    first_name = factory.Sequence('Robot{0}'.format)
     last_name = 'Test'
 
     is_staff = False
@@ -31,7 +31,7 @@ class ClientFactory(DjangoModelFactory):
     class Meta(object):
         model = provider.oauth2.models.Client
 
-    client_id = factory.Sequence(u'client_{0}'.format)
+    client_id = factory.Sequence('client_{0}'.format)
     client_secret = 'some_secret'
     client_type = CONFIDENTIAL
 
